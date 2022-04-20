@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+<title>Product Add</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+function HideallForm()
+{
+           document.getElementById("form1").style = "none"; 
+           document.getElementById("form2").style = "none"; 
+           document.getElementById("form2").style = "none"; 
+}
+ 
+function setForm(value) {
+
+
+ var e = document.getElementById('select1');
+    var selectedOption = e.options[e.selectedIndex].value;
+    if(value == 'dvd'){
+                document.getElementById('form1').style='display:block;';
+                document.getElementById('form2').style='display:none;';
+                document.getElementById('form3').style='display:none;';
+            }
+            else if(value == 'furniture') {
+
+                document.getElementById('form1').style = 'display:none;';
+                document.getElementById('form2').style = 'display:block;';
+                document.getElementById('form3').style = 'display:none;';
+
+            }else if(value == 'book'){
+                document.getElementById('form1').style = 'display:none;';
+                document.getElementById('form2').style = 'display:none;';
+                document.getElementById('form3').style = 'display:block;';
+            }else{
+              HideallForm();
+            }
+
+}  
+
+</script>
+</head>
+<body onload="HideallForm()">
+
+<section>
+<div class="wrapper">
+<div class="heading-box">
+<div><h1>Product Add</h1></div>
+<div>
+<button class="btn">Save</button>
+<button class="btn" >Cancel</button>
+</div>
+</div>
+<hr>
+</section>
+
+<section>
+   
+
+    <form action="" id="product_form" method="post">
+    <div class="form-group">
+    <label for="sku">SKU</label>
+    <input type="text" id="sku" name="sku" placeholder="sku">
+    </div>
+           
+    <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="name">
+    </div>
+
+    <div class="form-group">
+    <label for="price">Price ($)</label>
+    <input type="number" id="price" name="price" placeholder="price">
+    </div>
+
+    </form>
+
+    <label>Select Form</label>
+    <select id="select1" onchange="setForm(this.value)">
+    
+    <option value="">Type Switcher</option>
+    <option value="dvd">DVD</option>
+    <option value="furniture">Furniture</option>
+    <option value="book">Book</option>
+    </select>
+
+    <div class="form1" id="form1">
+    <form action="">
+      <div class="form-group">
+        <label for="size">Size (MB)</label>
+        <input type="text" id="size" name="size" placeholder="size">
+        </div>
+      </form>
+    </div>
+
+    <div class="form2" id="form2" >
+    <form action="">
+
+      <div class="form-group">
+      <label for="height">Height (CM)</label>
+      <input type="text" id="height" name="height" placeholder="height">
+      </div>
+  
+      <div class="form-group">
+      <label for="width">Width (CM)</label>
+      <input type="text" id="width" name="width" placeholder="width">
+      </div>
+  
+      <div class="form-group">
+      <label for="length">Length (CM)</label>
+      <input type="text" id="length" name="length" placeholder="length">
+      </div>
+  
+      </form>
+    </div>
+
+    <div id="form3" class="form3">
+      <form action="" >
+      <div class="form-group">
+        <label for="weight">Weight (KG)</label>
+        <input type="text" id="weight" name="weight" placeholder="weight">
+        </div>
+      </form>
+    </div>
+      
+
+
+<hr>
+</section>
+
+<section>
+    <div class="footer">
+    <p>Scandiweb Test Assignment</p>
+    </div>
+    </section>
+    
+</body>
+</html>
